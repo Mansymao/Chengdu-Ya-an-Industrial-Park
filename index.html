@@ -12,6 +12,7 @@
             --bg: #fafbfc; --bg2: #f0f3f7;
             --txt: #3d4f5f; --txt2: #6b7d8e; --txt3: #94a3b2;
             --card: #fff; --border: #e8ecf1;
+            --red: #c0392b; --green: #27ae60;
             --r: 18px; --shadow: 0 4px 24px rgba(27,58,92,0.07);
         }
         body {
@@ -85,19 +86,18 @@
 
         /* ===== Stats Bar ===== */
         .stats {
-            position:relative; z-index:5; max-width:1060px; margin:-56px auto 0;
-            display:grid; grid-template-columns:repeat(4, 1fr);
+            position:relative; z-index:5; max-width:960px; margin:-56px auto 0;
+            display:grid; grid-template-columns:repeat(4,1fr);
             background:var(--card); border-radius:var(--r); box-shadow:var(--shadow);
-            overflow:hidden; width:100%;
+            overflow:hidden;
         }
-        .stat { text-align:center; padding:28px 12px; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:0; }
+        .stat { text-align:center; padding:32px 16px; position:relative; }
         .stat:not(:last-child)::after {
             content:''; position:absolute; right:0; top:20%; height:60%; width:1px; background:var(--border);
         }
-        .stat .num { font-size:36px; font-weight:800; color:var(--c1); line-height:1; white-space:nowrap; }
+        .stat .num { font-size:36px; font-weight:800; color:var(--c1); line-height:1; }
         .stat .num small { font-size:16px; font-weight:400; color:var(--txt2); }
         .stat .label { font-size:13px; color:var(--txt3); letter-spacing:2px; margin-top:8px; }
-        .stat .sub-label { font-size:11px; color:var(--gold); margin-top:4px; letter-spacing:1px; }
 
         /* ===== Container & Section ===== */
         .wrap { max-width:1060px; margin:0 auto; padding:72px 28px; }
@@ -110,25 +110,8 @@
         .prose { font-size:15px; line-height:2; max-width:820px; margin:0 auto; color:var(--txt); }
         .prose p { margin-bottom:16px; text-indent:2em; }
 
-        /* ===== Overview Visual ===== */
-        .overview-layout { display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start; }
-        .overview-text { font-size:14.5px; line-height:2; color:var(--txt); }
-        .overview-text p { margin-bottom:14px; text-indent:2em; }
-        .overview-highlights {
-            display:grid; grid-template-columns:1fr 1fr; gap:14px;
-        }
-        .ov-card {
-            background:var(--bg2); border-radius:14px; padding:20px 18px; text-align:center;
-            border:1px solid var(--border); transition:all .3s;
-        }
-        .ov-card:hover { border-color:var(--c3); transform:translateY(-2px); }
-        .ov-card .ov-num { font-size:26px; font-weight:800; color:var(--c1); line-height:1.1; }
-        .ov-card .ov-num small { font-size:13px; font-weight:400; color:var(--txt2); }
-        .ov-card .ov-label { font-size:12px; color:var(--txt3); margin-top:6px; letter-spacing:1px; }
-        .ov-card .ov-sub { font-size:11px; color:var(--gold); margin-top:3px; }
-
         /* ===== Feature Cards ===== */
-        .feat-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+        .feat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
         .feat {
             background:var(--card); border-radius:var(--r); padding:36px 28px;
             border:1px solid var(--border); transition:all .3s;
@@ -147,17 +130,15 @@
         .cost {
             background:var(--card); border-radius:var(--r); padding:28px 24px; text-align:center;
             border:1px solid var(--border); transition:all .3s;
-            display:flex; flex-direction:column; align-items:center;
         }
         .cost:hover { border-color:var(--gold); box-shadow:0 6px 24px rgba(200,150,78,0.12); }
-        .cost h5 { font-size:14px; color:var(--c1); letter-spacing:1px; margin-bottom:8px; min-height:20px; }
-        .cost .price { font-size:28px; font-weight:800; color:var(--c1); margin-bottom:4px; min-height:36px; display:flex; align-items:baseline; justify-content:center; }
+        .cost h5 { font-size:14px; color:var(--c1); letter-spacing:1px; margin-bottom:8px; }
+        .cost .price { font-size:28px; font-weight:800; color:var(--c1); margin-bottom:4px; }
         .cost .price small { font-size:13px; font-weight:400; color:var(--txt2); }
-        .cost .desc { font-size:12.5px; color:var(--txt3); line-height:1.7; margin:10px 0; flex:1; }
+        .cost .desc { font-size:12.5px; color:var(--txt3); line-height:1.7; margin:10px 0; }
         .cost .tag {
             display:inline-block; background:var(--gold-light); color:var(--gold);
             padding:3px 12px; border-radius:20px; font-size:11px; font-weight:600;
-            margin-top:auto;
         }
 
         /* ===== Geo Banner ===== */
@@ -215,9 +196,8 @@
         }
 
         /* ===== Enterprise List ===== */
-        .ent-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 36px; align-items:start; }
-        .ent-col { min-width:0; }
-        .ent-group { margin-bottom:20px; }
+        .ent-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px 28px; }
+        .ent-group { margin-bottom:8px; }
         .ent-group-title {
             font-size:13px; font-weight:600; color:var(--c2); letter-spacing:2px;
             padding-bottom:8px; margin-bottom:12px; border-bottom:2px solid var(--bg2);
@@ -230,16 +210,6 @@
         .ent-dot { width:8px; height:8px; min-width:8px; border-radius:50%; background:var(--gold); }
         .ent-name { font-size:14px; color:var(--txt); font-weight:500; }
         .ent-biz { font-size:12px; color:var(--txt3); margin-left:auto; white-space:nowrap; }
-
-        /* ===== Transport Images ===== */
-        .transport-imgs { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:36px; }
-        .transport-img-item { display:flex; flex-direction:column; }
-        .transport-img-item img {
-            width:100%; height:480px; object-fit:contain;
-        }
-        .transport-img-item .img-caption {
-            text-align:center; font-size:12px; color:var(--txt3); margin-top:10px; letter-spacing:1px;
-        }
 
         /* ===== News ===== */
         .news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
@@ -272,6 +242,13 @@
             color:var(--c3); font-size:12.5px; font-weight:500; text-decoration:none;
         }
         .news-link:hover { color:var(--c1); }
+
+        /* ===== Transport Images ===== */
+        .transport-imgs { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:36px; }
+        .transport-imgs img {
+            width:100%; border-radius:var(--r); box-shadow:var(--shadow);
+            border:1px solid var(--border);
+        }
 
         /* ===== CTA ===== */
         .cta {
@@ -315,7 +292,6 @@
             .ent-grid{grid-template-columns:1fr}
             .geo{grid-template-columns:1fr;padding:28px}
             .transport-imgs{grid-template-columns:1fr}
-            .overview-layout{grid-template-columns:1fr}
             .cta-box{grid-template-columns:1fr}
             .topnav a:not(.topnav-brand){padding:10px 10px;font-size:12px}
             .topnav-brand{font-size:12px;padding:10px 10px 10px 6px}
@@ -333,10 +309,9 @@
             .feat:hover,.cost:hover,.news:hover{transform:none}
             .news-img{height:120px}
             .geo{grid-template-columns:1fr}
-            .overview-layout{grid-template-columns:1fr}
             .wrap{padding:36px 16px}
             .sec-title{margin-bottom:24px}
-            .feat,.cost,.ind,.news,.stat,.geo,.ptbl-wrap,.transport-imgs{break-inside:avoid;page-break-inside:avoid}
+            .feat,.cost,.ind,.news,.stat,.geo,.ptbl-wrap{break-inside:avoid;page-break-inside:avoid}
             .topnav{display:none}
         }
     </style>
@@ -348,12 +323,9 @@
     <div class="topnav-inner">
         <span class="topnav-brand">成雅工业园</span>
         <a href="#s-overview">园区概览</a>
-        <a href="#s-advantages">核心优势</a>
+        <a href="#s-advantages">区位交通</a>
         <a href="#s-cost">成本参考</a>
-        <a href="#s-transport">交通区位</a>
-        <a href="#s-geography">战略地理</a>
         <a href="#s-industry">主导产业</a>
-        <a href="#s-policy">政策服务</a>
         <a href="#s-enterprise">入驻企业</a>
         <a href="#s-news">领导关怀</a>
         <a href="#s-contact">联系我们</a>
@@ -363,7 +335,7 @@
 <!-- ==================== Hero ==================== -->
 <section class="hero">
     <div class="hero-inner">
-        <div class="hero-badge">省级工业园区 · 营收突破百亿</div>
+        <div class="hero-badge">省级重点工业园区</div>
         <h1>成雅工业园区</h1>
         <p class="sub">CHENGYA INDUSTRIAL PARK</p>
         <div class="line"></div>
@@ -373,10 +345,10 @@
 
 <!-- ==================== Stats ==================== -->
 <div class="stats">
-    <div class="stat"><div class="num">5.04<small> km²</small></div><div class="label">城镇开发边界</div><div class="sub-label">已开发 2.68 km²</div></div>
-    <div class="stat"><div class="num">181<small> 家</small></div><div class="label">入驻企业</div><div class="sub-label">四上企业 40 家</div></div>
-    <div class="stat"><div class="num">131.16<small> 亿元</small></div><div class="label">2025年营业收入</div><div class="sub-label">首次突破百亿</div></div>
-    <div class="stat"><div class="num">5.35<small> 亿元</small></div><div class="label">2025年税收</div><div class="sub-label">亩均排名全省第51位</div></div>
+    <div class="stat"><div class="num">5.04<small> km²</small></div><div class="label">占地面积</div></div>
+    <div class="stat"><div class="num">181<small> 家</small></div><div class="label">已入驻企业</div></div>
+    <div class="stat"><div class="num">131<small> 亿元</small></div><div class="label">2025年营业收入</div></div>
+    <div class="stat"><div class="num">5.35<small> 亿元</small></div><div class="label">2025年实现税收</div></div>
 </div>
 
 <!-- ==================== 园区概览 ==================== -->
@@ -386,49 +358,83 @@
         <div class="en">PARK OVERVIEW</div>
         <div class="bar"></div>
     </div>
-    <div class="overview-layout">
-        <div class="overview-text">
-            <p>成雅工业园区由成都市人民政府与雅安市人民政府于2011年3月合作共建，2012年启动建设，2013年1月获市政府批复成立，2019年1月经省政府批复升级为省级工业园区，核准面积1.96平方公里（2940亩）。根据国土空间总体规划，园区城镇开发边界面积5.04平方公里，位于雅安市名山区境内，系雅安建设川藏经济协作先行区及甘雅工业园区起步区，目前已完成开发面积2.68平方公里。</p>
-            <p>园区入驻企业181家，2025年度实现营业收入131.16亿元，首次突破百亿大关，实现税收5.35亿元。在四川省级及以上开发区"亩均论英雄"调查评价中，排名由2019年的第97名提升至2024年的第51名。现有"四上"规模企业40家，其中规上工业企业23家、限上服务业企业17家；高新技术企业8家，专精特新企业5家，省级企业技术中心2个，全省100强制造业企业1家。</p>
-        </div>
-        <div class="overview-highlights">
-            <div class="ov-card"><div class="ov-num">2011<small>年</small></div><div class="ov-label">成雅两市合作共建</div></div>
-            <div class="ov-card"><div class="ov-num">1.96<small> km²</small></div><div class="ov-label">核准面积</div><div class="ov-sub">开发边界 5.04 km²</div></div>
-            <div class="ov-card"><div class="ov-num">8<small> 家</small></div><div class="ov-label">高新技术企业</div><div class="ov-sub">专精特新 5 家</div></div>
-            <div class="ov-card"><div class="ov-num">第51<small> 名</small></div><div class="ov-label">亩均排名全省</div><div class="ov-sub">较2019年提升46位</div></div>
-        </div>
+    <div class="prose">
+        <p>成雅工业园区位于雅安市名山区境内，由成都市人民政府与雅安市人民政府于2011年共同组建成立，2012年正式启动建设，2019年经四川省人民政府批复升格为省级工业园区。园区总体规划面积50平方公里，按照"融入成都、借势发展、优势互补、合作共赢"的发展思路，依托成都的产业辐射和雅安的资源禀赋，致力于打造川西地区重要的先进制造业基地和产城融合示范区。</p>
+        <p>园区分四期建设，远景规划至2050年。目前已形成较为完善的产业配套和基础设施体系，累计吸引181家企业入驻，培育规上工业企业数量连续四年位居全市第一，年营业收入突破131亿元，产业集聚效应日益显著。</p>
     </div>
 </div>
 
-<!-- ==================== 核心优势 ==================== -->
+<!-- ==================== 区位交通与战略优势 ==================== -->
 <div style="background:var(--bg2)" id="s-advantages">
 <div class="wrap">
     <div class="sec-title">
-        <h3>核心优势</h3>
-        <div class="en">CORE ADVANTAGES</div>
+        <h3>区位交通与战略优势</h3>
+        <div class="en">LOCATION, TRANSPORT & STRATEGIC ADVANTAGES</div>
         <div class="bar"></div>
     </div>
-    <div class="feat-grid">
-        <div class="feat">
+
+    <!-- 综述导语 -->
+    <div class="prose" style="margin-bottom:40px;">
+        <p>园区位于雅安市名山区境内，地处成都与雅安之间的黄金走廊，北距成都90公里，处于成都一小时经济圈内。成雅高速、108国道、318国道、成雅铁路交织成网，川藏铁路经过区域，距双流机场约100公里、天府机场约130公里，形成公铁空多维立体交通体系。雅安素有“川西咽喉”“康藏门户”之称，是川藏经济协作试验区和成都都市圈西向重要功能区，川藏铁路全线贯通后将升级为面向西藏及南亚的开放前沿。</p>
+    </div>
+
+    <!-- 图片展示 -->
+    <div style="display:flex;gap:24px;margin-bottom:48px;align-items:stretch;">
+        <img src="images/黄金区位立体交通.png" alt="黄金区位 立体交通" style="flex:2;height:500px;object-fit:contain;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);">
+        <img src="images/园区规划图.png" alt="园区规划图" style="flex:3;height:500px;object-fit:contain;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);">
+    </div>
+
+    <!-- 四大优势卡片 -->
+    <div style="display:flex;gap:24px;margin-bottom:48px;">
+        <div class="feat" style="flex:1.1;">
             <div class="feat-icon">📍</div>
             <h4>黄金区位</h4>
-            <p>地处成都与雅安之间的黄金走廊，北距成都90公里，南距雅安市区30公里，处于成都一小时经济圈内，是雅安融入成都经济圈的"桥头堡"，承接产业转移优势显著。</p>
+            <p>地处成都与雅安之间的黄金走廊，北距成都90公里，处于成都一小时经济圈内。是雅安融入成都经济圈的“桥头堡”，承接产业转移、实现同城化发展的区位优势显著。</p>
         </div>
-        <div class="feat">
+        <div class="feat" style="flex:1.4;">
             <div class="feat-icon">⚡</div>
-            <h4>要素保障有力</h4>
-            <p>现有110KV和220KV变电站各1座，电力主变容量达82万kVA，雅安水电资源丰富，综合电价约0.5元/度。工业用水由区供水总厂提供，日产量6万立方，价格2元/吨。工业用气由川西北气矿直供，约3.05元/m³。已建成日处理5000m³污水处理厂1座、240m³污水处理站1座。</p>
+            <h4>要素保障</h4>
+            <p>现有110KV和220KV变电站各1座，电力主变容量82万kVA；工业用水日供6万立方，污水处理厂日处理5000立方；土地储备约2940亩，地势平整、集中连片，可满足大型项目落地需求。</p>
         </div>
-        <div class="feat">
+        <div class="feat" style="flex:1.4;">
             <div class="feat-icon">🏭</div>
-            <h4>产业集聚成型</h4>
-            <p>181家企业集聚发展，形成装备制造、有色金属延压加工、塑料橡胶制品三大主导集群，配套家具制造、非金属矿物制品等行业。配备标准化厂房、仓储物流中心和产业孵化器，提供全生命周期配套服务。</p>
+            <h4>产业配套</h4>
+            <p>园区已形成先进材料、装备制造、电子信息等特色产业集群。在土地、税收、人才引进、厂房租赁等方面均有专项扶持，配备标准化厂房、仓储物流中心和产业孵化器，提供全生命周期产业配套服务。</p>
         </div>
-        <div class="feat">
-            <div class="feat-icon">🏆</div>
-            <h4>政策红利高地</h4>
-            <p>同时享受西部大开发、成渝双城经济圈、川藏经济协作试验区、成都都市圈等多重国家战略。工业用地基础价约9万元/亩，采用弹性年限出让，在税收、人才、厂房等方面均有专项扶持，投资性价比突出。</p>
+        <div class="feat" style="flex:1.1;">
+            <div class="feat-icon">⭐</div>
+            <h4>战略枢纽</h4>
+            <p>雅安为古代川藏茶马古道起点，“十五五”期间锚定“三区两地一枢纽”战略定位，川藏铁路贯通后将承接藏矿入川、川藏装备制造等战略产业。</p>
         </div>
+    </div>
+
+    <!-- 政策叠加优势 -->
+    <div style="text-align:center;margin-bottom:36px;">
+        <h4 style="font-size:20px;color:var(--c1);letter-spacing:2px;margin-bottom:6px;">政策叠加优势</h4>
+        <p style="font-size:13px;color:var(--txt3);letter-spacing:1px;">POLICY STACKING ADVANTAGES</p>
+    </div>
+    <div class="stack">
+        <span class="stack-tag">新时代西部大开发</span>
+        <span class="stack-tag">成渝地区双城经济圈</span>
+        <span class="stack-tag">四川省省级工业园区</span>
+        <span class="stack-tag">川藏经济协作试验区</span>
+        <span class="stack-tag">成都都市圈同城化发展</span>
+        <span class="stack-tag">国家战略腹地建设</span>
+        <span class="stack-tag">成都-雅安两市合作共建</span>
+    </div>
+    <div class="ptbl-wrap">
+        <table class="ptbl">
+            <thead><tr><th style="width:14%">政策类别</th><th>主要内容</th></tr></thead>
+            <tbody>
+                <tr><td><span class="ptag">战略叠加</span></td><td style="white-space:nowrap;">同时享受西部大开发、成渝双城经济圈、川藏经济协作试验区、成都都市圈等多重国家战略政策红利，七重政策叠加效应全国罕见</td></tr>
+                <tr><td><span class="ptag">土地政策</span></td><td>工业用地约9万元/亩，重大项目“一事一议”供地；支持弹性年限出让、先租后让等灵活方式</td></tr>
+                <tr><td><span class="ptag">税收优惠</span></td><td>西部大开发企业所得税15%优惠税率；增值税、所得税地方留成部分给予一定比例奖励扶持</td></tr>
+                <tr><td><span class="ptag">厂房支持</span></td><td>标准化厂房租赁，前两年免租或租金补贴；自建厂房重大项目给予建设补贴</td></tr>
+                <tr><td><span class="ptag">人才政策</span></td><td>高层次人才安家补贴、子女入学、医疗保障等专项服务；与四川农业大学等高校合作搭建产学研人才通道</td></tr>
+                <tr><td><span class="ptag">融资服务</span></td><td>园区产业发展基金，联合金融机构提供信贷支持；符合条件的企业给予贷款贴息和融资担保</td></tr>
+                <tr><td><span class="ptag">营商服务</span></td><td>“一站式”行政审批，项目落地全程代办帮办；“最多跑一次”改革，企业开办当日办结</td></tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </div>
@@ -444,25 +450,25 @@
         <div class="cost">
             <h5>⚡ 工业用电</h5>
             <div class="price">≈0.50 <small>元/度</small></div>
-            <div class="desc">110KV+220KV变电站各1座，主变容量82万kVA。雅安水电资源丰富，清洁能源价格优势显著</div>
+            <div class="desc">园区已建成110kV和220kV变电站，配套35kV/10kV输变线路。四川清洁能源丰富，峰谷分时电价进一步降低成本</div>
             <div class="tag">较成都低约15%-20%</div>
         </div>
         <div class="cost">
             <h5>💧 工业用水</h5>
             <div class="price">≈2.00 <small>元/吨</small></div>
-            <div class="desc">区供水总厂直供，日产量6万立方，水源充沛。配套日处理5000m³污水处理厂</div>
+            <div class="desc">接入名山区市政供水管网，日供水量6万立方，水源充沛、水质优良，含基本水价及污水处理费</div>
             <div class="tag">较沿海城市低约40%-50%</div>
         </div>
         <div class="cost">
             <h5>🔥 工业天然气</h5>
             <div class="price">≈3.05 <small>元/m³</small></div>
-            <div class="desc">川西北气矿管道直供园区，气源稳定、价格可控，满足各类工业用气需求</div>
+            <div class="desc">依托川西北气矿直供，管道天然气直通园区，价格稳定可控</div>
             <div class="tag">较东部地区低约30%-40%</div>
         </div>
         <div class="cost">
             <h5>🏗 工业用地</h5>
             <div class="price">≈9 <small>万元/亩</small></div>
-            <div class="desc">可使用工业用地约2940亩，地势平整集中连片。采用弹性年限出让方式，重大项目一事一议</div>
+            <div class="desc">省级园区用地指标充足，支持弹性年限出让、先租后让，重大项目一事一议</div>
             <div class="tag">较成都周边低约60%-70%</div>
         </div>
         <div class="cost">
@@ -481,71 +487,6 @@
     <p style="text-align:center;margin-top:18px;font-size:11px;color:var(--txt3);letter-spacing:1px;">* 以上为参考价格，实际费用以园区管委会及相关部门最新公布为准</p>
 </div>
 
-<!-- ==================== 交通区位 ==================== -->
-<div style="background:var(--bg2)" id="s-transport">
-<div class="wrap">
-    <div class="sec-title">
-        <h3>交通区位</h3>
-        <div class="en">TRANSPORTATION & LOCATION</div>
-        <div class="bar"></div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-        <div class="feat" style="text-align:center;padding:28px 20px;">
-            <div style="font-size:28px;margin-bottom:12px;">🛣</div>
-            <h4 style="font-size:15px;margin-bottom:8px;">高速公路</h4>
-            <p style="font-size:13px;">南接成雅高速，连通成渝环线高速，至成都约1小时车程</p>
-        </div>
-        <div class="feat" style="text-align:center;padding:28px 20px;">
-            <div style="font-size:28px;margin-bottom:12px;">🚂</div>
-            <h4 style="font-size:15px;margin-bottom:8px;">铁路运输</h4>
-            <p style="font-size:13px;">紧邻成雅铁路站点，川藏铁路经过区域，具备大宗货运条件</p>
-        </div>
-        <div class="feat" style="text-align:center;padding:28px 20px;">
-            <div style="font-size:28px;margin-bottom:12px;">✈️</div>
-            <h4 style="font-size:15px;margin-bottom:8px;">航空辐射</h4>
-            <p style="font-size:13px;">距双流机场约100km、天府机场约130km，通达全国及国际航线</p>
-        </div>
-        <div class="feat" style="text-align:center;padding:28px 20px;">
-            <div style="font-size:28px;margin-bottom:12px;">🛤</div>
-            <h4 style="font-size:15px;margin-bottom:8px;">国道干线</h4>
-            <p style="font-size:13px;">北邻108国道，318国道穿园而过，衔接川滇藏三省公路网络</p>
-        </div>
-    </div>
-    <div class="transport-imgs">
-        <div class="transport-img-item">
-            <img src="park_transport.png" alt="黄金区位 立体交通">
-            <div class="img-caption">黄金区位 · 立体交通</div>
-        </div>
-        <div class="transport-img-item">
-            <img src="park_map.png" alt="成雅工业园区规划图">
-            <div class="img-caption">成雅工业园区 · 甘雅工业园区规划布局</div>
-        </div>
-    </div>
-</div>
-</div>
-
-<!-- ==================== 雅安战略地理 ==================== -->
-<div class="wrap" id="s-geography">
-    <div class="sec-title">
-        <h3>立足雅安 · 战略地理优势</h3>
-        <div class="en">STRATEGIC GEOGRAPHY</div>
-        <div class="bar"></div>
-    </div>
-    <div class="geo">
-        <div>
-            <h4>川西咽喉 · 成渝向西开放新高地</h4>
-            <p>雅安位于四川盆地西缘，地处成都平原向青藏高原的过渡地带，素有"川西咽喉""康藏门户"之称。在"十五五"规划中，雅安锚定<strong style="color:var(--gold);">"三区两地一枢纽"</strong>战略定位——建设绿色产业创新发展区、川藏经济协作试验区、成都都市圈西向重要功能区，打造世界大熊猫文化旅游重要目的地及川西综合交通枢纽。</p>
-            <p>成雅工业园区规划范围已整体纳入川藏经济协作试验区百丈片区，国土空间总体规划获批，园区发展迎来重大战略机遇。</p>
-        </div>
-        <div class="geo-tags">
-            <div class="geo-tag"><div class="ico">🚂</div><h6>川藏铁路枢纽</h6><p>全线贯通后雅安将升级为面向西藏及南亚的前沿门户</p></div>
-            <div class="geo-tag"><div class="ico">🏔</div><h6>川藏经济协作试验区</h6><p>园区已整体纳入试验区百丈片区规划范围</p></div>
-            <div class="geo-tag"><div class="ico">🌉</div><h6>成都都市圈西向门户</h6><p>承接成都产业西向转移，实现同城化发展</p></div>
-            <div class="geo-tag"><div class="ico">🌿</div><h6>绿色发展先行市</h6><p>清洁能源丰富，为绿色制造提供天然优势</p></div>
-        </div>
-    </div>
-</div>
-
 <!-- ==================== 主导产业 ==================== -->
 <div style="background:var(--bg2)" id="s-industry">
 <div class="wrap">
@@ -557,54 +498,22 @@
     <div class="ind-grid">
         <div class="ind">
             <div class="ind-n">01</div>
-            <div><h4>装备制造</h4><p>集聚企业23家，涵盖汽车零配件、精密铸造、钢结构、智能制造等领域。承接成都装备制造业转移，形成上下游协同产业链。</p></div>
+            <div><h4>低空经济</h4><p>依托四川省低空空域管理改革试点，发展无人机研发制造、低空飞行器装配、通航服务及相关配套产业。</p></div>
         </div>
         <div class="ind">
             <div class="ind-n">02</div>
-            <div><h4>有色金属延压加工</h4><p>集聚企业10家，以铜加工、铝加工为核心，依托雅安矿产和清洁能源优势，发展高附加值金属材料深加工。</p></div>
+            <div><h4>先进材料</h4><p>发展新型金属材料、高性能复合材料、新能源材料，依托雅安矿产和清洁能源优势建设产业基地。</p></div>
         </div>
         <div class="ind">
             <div class="ind-n">03</div>
-            <div><h4>塑料与橡胶制品</h4><p>集聚企业32家，涵盖包装膜、工业包装、新型塑料材料等，产业链条完整，配套能力强。</p></div>
+            <div><h4>装备制造</h4><p>聚焦智能装备、精密机械、汽车零部件，承接成都装备制造业转移，形成上下游协同产业链。</p></div>
         </div>
         <div class="ind">
             <div class="ind-n">04</div>
-            <div><h4>低空经济</h4><p>依托四川省低空空域管理改革试点，规划低空经济产业园（874亩），发展无人机研发制造、通航服务及相关配套产业。</p></div>
+            <div><h4>电子信息</h4><p>引进电子元器件、智能终端、物联网设备等企业，融入成都电子信息万亿级产业集群生态。</p></div>
         </div>
     </div>
 </div>
-</div>
-
-<!-- ==================== 政策叠加 ==================== -->
-<div class="wrap" id="s-policy">
-    <div class="sec-title">
-        <h3>政策叠加优势与投资服务</h3>
-        <div class="en">POLICY ADVANTAGES & SERVICES</div>
-        <div class="bar"></div>
-    </div>
-    <div class="stack">
-        <span class="stack-tag">新时代西部大开发</span>
-        <span class="stack-tag">成渝地区双城经济圈</span>
-        <span class="stack-tag">四川省省级工业园区</span>
-        <span class="stack-tag">川藏经济协作试验区</span>
-        <span class="stack-tag">成都都市圈同城化发展</span>
-        <span class="stack-tag">国家战略腹地建设</span>
-        <span class="stack-tag">成都-雅安两市合作共建</span>
-    </div>
-    <div class="ptbl-wrap">
-        <table class="ptbl">
-            <thead><tr><th style="width:20%">政策类别</th><th>主要内容</th></tr></thead>
-            <tbody>
-                <tr><td><span class="ptag">战略叠加</span></td><td>同时享受西部大开发、成渝双城经济圈、川藏经济协作试验区、成都都市圈等多重国家战略政策红利，七重政策叠加效应全国罕见</td></tr>
-                <tr><td><span class="ptag">土地政策</span></td><td>工业用地基础价约9万元/亩，采用弹性年限出让；重大项目"一事一议"供地，支持先租后让等灵活方式</td></tr>
-                <tr><td><span class="ptag">税收优惠</span></td><td>西部大开发企业所得税15%优惠税率；增值税、所得税地方留成部分给予一定比例奖励扶持</td></tr>
-                <tr><td><span class="ptag">厂房支持</span></td><td>标准化厂房租赁，前两年免租或租金补贴；自建厂房重大项目给予建设补贴</td></tr>
-                <tr><td><span class="ptag">人才政策</span></td><td>高层次人才安家补贴、子女入学、医疗保障等专项服务；与四川农业大学等高校合作搭建产学研人才通道</td></tr>
-                <tr><td><span class="ptag">融资服务</span></td><td>园区产业发展基金，联合金融机构提供信贷支持；符合条件的企业给予贷款贴息和融资担保</td></tr>
-                <tr><td><span class="ptag">营商服务</span></td><td>"一站式"行政审批，项目落地全程代办帮办；"最多跑一次"改革，企业开办当日办结</td></tr>
-            </tbody>
-        </table>
-    </div>
 </div>
 
 <!-- ==================== 入驻企业 ==================== -->
@@ -615,66 +524,45 @@
         <div class="en">SETTLED ENTERPRISES</div>
         <div class="bar"></div>
     </div>
-    <p style="text-align:center;font-size:13.5px;color:var(--txt2);margin-bottom:36px;letter-spacing:1px;">园区入驻企业181家，以下为"四上"规模企业（共40家）</p>
+    <p style="text-align:center;font-size:13.5px;color:var(--txt2);margin-bottom:36px;letter-spacing:1px;white-space:nowrap;">园区现有入驻企业181家，其中"四上"规模企业40家（规上工业23家、限上服务业17家），高新技术企业8家，专精特新企业5家。以下为部分代表性入驻企业</p>
     <div class="ent-grid">
-        <div class="ent-col">
         <div class="ent-group">
-            <div class="ent-group-title">工业企业（23家）</div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川长河塑业有限公司</span><span class="ent-biz">包装膜</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川省蜀乡酒业有限公司</span><span class="ent-biz">酒业</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安万泰铝业有限公司</span><span class="ent-biz">铝加工</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安大黄河钢结构工程有限公司</span><span class="ent-biz">钢结构</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川伟裕铝业有限公司</span><span class="ent-biz">铝加工</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安新航精密铸造有限公司</span><span class="ent-biz">精密铸造</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安兴元新材料有限公司</span><span class="ent-biz">新材料</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川兴伟博家具有限责任公司</span><span class="ent-biz">家具制造</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川君益电气有限公司</span><span class="ent-biz">电气设备</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川赢信汇通智能制造股份公司</span><span class="ent-biz">汽车零配件</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川崇科建材有限责任公司</span><span class="ent-biz">建材</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安红树林新材料有限公司</span><span class="ent-biz">新材料</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安悦蓉泰铝业有限公司</span><span class="ent-biz">铝加工</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川蜀阳铝业有限公司</span><span class="ent-biz">铝加工</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川鑫家和新型材料有限公司</span><span class="ent-biz">新材料</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川明鸿成新材料有限公司</span><span class="ent-biz">新材料</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安优美特金属制品有限公司</span><span class="ent-biz">金属制品</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川鑫凯铭泰金属材料有限公司</span><span class="ent-biz">金属材料</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安市四维瀚海汽车零部件有限公司</span><span class="ent-biz">汽车零部件</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川聚信银丰实业有限公司</span><span class="ent-biz">实业</span></div>
+            <div class="ent-group-title">有色金属与新材料（工业）</div>
             <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川西南铜业有限公司</span><span class="ent-biz">铜加工</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川苌弘铝业有限公司</span><span class="ent-biz">铝加工</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川蜀赛美新材料有限公司</span><span class="ent-biz">新材料</span></div>
-        </div>
-        </div>
-        <div class="ent-col">
-        <div class="ent-group">
-            <div class="ent-group-title">服务业企业（8家）</div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川天恒创智展览有限公司</span><span class="ent-biz">会展</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川天域博远展览有限公司</span><span class="ent-biz">会展</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川玖名展览展示有限公司</span><span class="ent-biz">会展</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川形睿展览展示有限公司</span><span class="ent-biz">会展</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川甘城展览有限公司</span><span class="ent-biz">会展</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川展多多会展服务有限公司</span><span class="ent-biz">会展</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川华广智展展览有限责任公司</span><span class="ent-biz">会展</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安清新环境科技有限公司</span><span class="ent-biz">环保科技</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川伟裕铝业有限公司</span><span class="ent-biz">铝业</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川弘铝业有限公司</span><span class="ent-biz">铝加工</span></div>
         </div>
         <div class="ent-group">
-            <div class="ent-group-title">批发零售企业（6家）</div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川雅泰新能科技有限公司</span><span class="ent-biz">批发</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川鑫鼎祥金属材料有限公司</span><span class="ent-biz">批发</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安赢创再生资源回收有限公司</span><span class="ent-biz">批发</span></div>
+            <div class="ent-group-title">装备制造与智能制造（工业）</div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川赢信汇通智能制造股份公司</span><span class="ent-biz">汽车零配件</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安新航精密铸造有限公司</span><span class="ent-biz">精密铸造</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川鑫平铝业有限公司</span><span class="ent-biz">铝业</span></div>
+        </div>
+        <div class="ent-group">
+            <div class="ent-group-title">家具建材与钢结构（工业）</div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川兴伟博家具有限责任公司</span><span class="ent-biz">家具制造</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安大黄河钢结构工程有限公司</span><span class="ent-biz">钢结构</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川长河塑业有限公司</span><span class="ent-biz">包装膜</span></div>
+        </div>
+        <div class="ent-group">
+            <div class="ent-group-title">现代服务业</div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川甘城展览有限公司</span><span class="ent-biz">会展服务</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川展多多会展服务有限公司</span><span class="ent-biz">会展服务</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川食展会展有限公司</span><span class="ent-biz">会展服务</span></div>
+        </div>
+        <div class="ent-group">
+            <div class="ent-group-title">批发零售</div>
             <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">赢信汇通（雅安）集团发展有限公司</span><span class="ent-biz">批发</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安赢创再生资源回收有限公司</span><span class="ent-biz">再生资源</span></div>
             <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安市成雅新城商贸有限公司</span><span class="ent-biz">商贸</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川卓瑞铜业有限公司</span><span class="ent-biz">铜业贸易</span></div>
         </div>
         <div class="ent-group">
-            <div class="ent-group-title">建筑业企业（3家）</div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安市成雅新城建筑工程有限公司</span><span class="ent-biz">建筑</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川蒙鼎建筑工程有限公司</span><span class="ent-biz">建筑</span></div>
-            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川金黄河建设工程有限公司</span><span class="ent-biz">建筑安装</span></div>
-        </div>
+            <div class="ent-group-title">建筑业</div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川金黄河建设工程有限公司</span><span class="ent-biz">建筑安装工程</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">四川蒙鼎建筑工程有限公司</span><span class="ent-biz">建筑工程</span></div>
+            <div class="ent-item"><span class="ent-dot"></span><span class="ent-name">雅安市成雅新城建筑工程有限公司</span><span class="ent-biz">建筑工程</span></div>
         </div>
     </div>
-    <p style="text-align:center;margin-top:20px;font-size:12px;color:var(--txt3);letter-spacing:1px;">* 以上为"四上"规模企业名单，园区另有141家规下企业</p>
 </div>
 </div>
 
@@ -682,41 +570,41 @@
 <div class="wrap" id="s-news">
     <div class="sec-title">
         <h3>领导关怀与园区动态</h3>
-        <div class="en">LEADERSHIP & NEWS</div>
+        <div class="en">LEADERSHIP &amp; NEWS</div>
         <div class="bar"></div>
     </div>
     <div class="news-grid">
         <div class="news">
             <div class="news-img">
-                <img src="https://www.sc.gov.cn/10462/14721/2026/5/13/fee2ef4f478b4c81bb49298249ae800d/images/1_%E5%89%AF%E6%9C%AC.jpg" alt="王晓晖来雅安调研" onerror="this.parentElement.innerHTML='<div class=ph><span class=pi>📰</span><span>四川省委书记王晓晖</span></div>'">
-            </div>
-            <div class="news-body">
-                <span class="news-date">2026年5月</span>
-                <h4>省委书记王晓晖来雅安调研：做强锂电等产业，构建现代化产业体系</h4>
-                <p>王晓晖深入雅安经开区中航工业川西机器公司察看生产线，走访雅化锂业勉励发展专精特新。在名山区百丈镇调研乡村振兴，强调因地制宜发展新质生产力。</p>
-                <a class="news-link" href="https://www.yaan.gov.cn/xinwen/show/50abd0d80cc41f799c6a532ce599aec5.html" target="_blank">查看详情 →</a>
-            </div>
-        </div>
-        <div class="news">
-            <div class="news-img">
-                <img src="https://res.yaan.gov.cn/UploadFiles/2026/03/02/cf53e742-3529-48c6-b2fc-a29473f68ab7.jpg" alt="廖文彬经开区高质量发展座谈会" onerror="this.parentElement.innerHTML='<div class=ph><span class=pi>📰</span><span>雅安市委书记廖文彬</span></div>'">
+                <img src="images/news-factory-production.jpg" alt="成雅工业园区复工复产" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi></span><span>成雅工业园区复工复产</span></div>'">
             </div>
             <div class="news-body">
                 <span class="news-date">2026年3月</span>
-                <h4>廖文彬主持召开雅安经开区高质量发展座谈会：走在前 求突破</h4>
-                <p>雅安市委书记廖文彬强调经开区要走在前、求突破，奋力开创高质量发展新局面。要求党员干部眼中有光、心里有梦，肩上有责、脚下有路，成为推动发展的中坚力量。</p>
-                <a class="news-link" href="https://www.yaan.gov.cn/xinwen/show/49d217db-306f-4a91-b388-31c9936f5b6b.html" target="_blank">查看详情 →</a>
+                <h4>成雅工业园区锚定"3+2"现代工业体系 全力冲刺"开门红"</h4>
+                <p>2026年开年，园区企业复工速度快、复产底气足。赢信汇通冲刺3亿产值目标，金黄河突破5000万，展现强劲发展势头。园区锚定低空经济、先进材料、装备制造"3+2"现代工业体系建设目标。</p>
+                <a class="news-link" href="https://www.yaan.gov.cn/xinwen/show/8201f6e0-6d01-4fc5-906c-a40988f331fe.html" target="_blank">查看详情 →</a>
             </div>
         </div>
         <div class="news">
             <div class="news-img">
-                <img src="https://www.scspc.gov.cn/dygz/202511/W020251124350106769698.jpg" alt="王雁飞率队赴成雅工业园区调研" onerror="this.parentElement.innerHTML='<div class=ph><span class=pi>📰</span><span>省人大调研组</span></div>'">
+                <img src="images/news-leader-visit.jpg" alt="市委书记廖文彬调研名山区" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi>📰</span><span>市委书记廖文彬调研名山区</span></div>'">
             </div>
             <div class="news-body">
-                <span class="news-date">2025年11月</span>
-                <h4>省人大副主任王雁飞率队赴成雅工业园区开展专题调研</h4>
-                <p>调研组先后到成雅工业园区、雅安经开区等地实地考察，重点关注"十五五"规划编制、川藏经济协作试验区建设，强调要把准功能定位和资源禀赋，发展新质生产力。</p>
-                <a class="news-link" href="https://www.scspc.gov.cn/dygz/202511/t20251124_49604.html" target="_blank">查看详情 →</a>
+                <span class="news-date">2025年8月</span>
+                <h4>廖文彬在名山区调研：抢抓机遇 发挥优势 在推动高质量发展中展现更大作为</h4>
+                <p>雅安市委书记廖文彬前往名山区调研，实地考察成雅工业园区川藏经济协作试验区建设情况，强调要抢抓机遇、发挥优势、担当实干，在推动高质量发展中展现更大作为。</p>
+                <a class="news-link" href="https://www.yaan.gov.cn/xinwen/show/81551957-6740-4f5c-b576-3e0ad3fe2cda.html" target="_blank">查看详情 →</a>
+            </div>
+        </div>
+        <div class="news">
+            <div class="news-img">
+                <img src="images/news-project-inspection.jpg" alt="区委书记余云峰调研成雅工业园区" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi></span><span>区委书记余云峰调研成雅工业园区</span></div>'">
+            </div>
+            <div class="news-body">
+                <span class="news-date">2024年11月</span>
+                <h4>名山区委书记余云峰调研成雅工业园区企业和项目建设工作</h4>
+                <p>名山区委书记余云峰调研成雅工业园区企业和项目建设工作，强调要牢固树立"抓项目就是抓发展"的理念，推动园区高质量发展，副区长袁敬雄等陪同调研。</p>
+                <a class="news-link" href="https://www.yaan.gov.cn/mob/article.html?id=ef2a5b11fe0cd8763ae80fa0e517d30a" target="_blank">查看详情 →</a>
             </div>
         </div>
     </div>
@@ -737,7 +625,7 @@
             <div class="cta-l">合作模式</div><div class="cta-v">独资 / 合资 / 合作开发 / 厂房租赁</div>
         </div>
         <br>
-        <a class="cta-map" href="https://uri.amap.com/marker?position=103.2813,30.1758&name=%E6%88%90%E9%9B%85%E5%B7%A5%E4%B8%9A%E5%9B%AD%E5%8C%BA&callnative=1&src=mypage" target="_blank">📍 在高德地图中查看园区位置</a>
+        <a class="cta-map" href="https://uri.amap.com/marker?position=103.2813,30.1758&name=%E6%88%90%E9%9B%85%E5%B7%A5%E4%B8%9A%E5%9B%AD%E5%8C%BA&callnative=1&src=mypage" target="_blank"> 在高德地图中查看园区位置</a>
     </div>
 </section>
 
