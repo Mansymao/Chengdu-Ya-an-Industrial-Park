@@ -344,10 +344,14 @@
             .news-body{padding:16px}
             .news-body h4{font-size:13.5px}
 
-            /* Policy table: horizontal scroll */
-            .ptbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-            .ptbl{min-width:560px}
-            .ptbl td[style*="nowrap"]{white-space:normal!important}
+            /* Policy table: stacked cards on mobile */
+            .ptbl-wrap{box-shadow:none;background:transparent}
+            .ptbl thead{display:none}
+            .ptbl, .ptbl tbody, .ptbl tr, .ptbl td{display:block;width:100%}
+            .ptbl tr{background:var(--card);border-radius:12px;margin-bottom:12px;padding:14px 16px;border:1px solid var(--border)}
+            .ptbl td{padding:0;border:none;font-size:13px;line-height:1.7}
+            .ptbl td:first-child{margin-bottom:6px;font-weight:600;font-size:12px;color:var(--c2)}
+            .ptbl td:last-child{color:var(--txt);white-space:normal!important}
 
             /* Enterprise intro: allow wrap on mobile */
             #s-enterprise p[style*="nowrap"]{white-space:normal!important}
@@ -446,7 +450,7 @@
         <div class="bar"></div>
     </div>
     <div class="prose">
-        <p>成雅工业园区位于雅安市名山区境内，由成都市人民政府与雅安市人民政府于2011年共同组建成立，2012年正式启动建设，2019年经四川省人民政府批复升格为省级工业园区。园区总体规划面积50平方公里，按照"融入成都、借势发展、优势互补、合作共赢"的发展思路，依托成都的产业辐射和雅安的资源禀赋，致力于打造川西地区重要的先进制造业基地和产城融合示范区。</p>
+        <p>成雅工业园区位于雅安市名山区境内，由成都市人民政府与雅安市人民政府共同组建成立，经四川省人民政府批复升格为省级工业园区。按照"融入成都、借势发展、优势互补、合作共赢"的发展思路，依托成都的产业辐射和雅安的资源禀赋，致力于打造川西地区重要的先进制造业基地和产城融合示范区。</p>
         <p>园区分四期建设，远景规划至2050年。目前已形成较为完善的产业配套和基础设施体系，累计吸引181家企业入驻，培育规上工业企业数量连续四年位居全市第一，年营业收入突破131亿元，产业集聚效应日益显著。</p>
     </div>
 </div>
@@ -462,13 +466,13 @@
 
     <!-- 综述导语 -->
     <div class="prose" style="margin-bottom:40px;">
-        <p>园区位于雅安市名山区境内，地处成都与雅安之间的黄金走廊，北距成都90公里，处于成都一小时经济圈内。成雅高速、108国道、318国道、成雅铁路交织成网，川藏铁路经过区域，距双流机场约100公里、天府机场约130公里，形成公铁空多维立体交通体系。雅安素有“川西咽喉”“康藏门户”之称，是川藏经济协作试验区和成都都市圈西向重要功能区，川藏铁路全线贯通后将升级为面向西藏及南亚的开放前沿。</p>
+        <p>园区地处成都与雅安之间的黄金走廊，北距成都90公里。成雅高速、108国道、318国道、成雅铁路交织成网，川藏铁路经过区域，距双流机场约100公里、天府机场约130公里，形成公铁空多维立体交通体系。</p>
     </div>
 
     <!-- 图片展示 -->
     <div style="display:flex;gap:24px;margin-bottom:48px;align-items:stretch;">
-        <img src="images/黄金区位立体交通.png" alt="黄金区位 立体交通" style="flex:2;height:500px;object-fit:contain;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);">
-        <img src="images/园区规划图.png" alt="园区规划图" style="flex:3;height:500px;object-fit:contain;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);">
+        <img src="黄金区位立体交通.png" alt="黄金区位 立体交通" style="flex:2;height:500px;object-fit:contain;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);">
+        <img src="园区规划图.png" alt="园区规划图" style="flex:3;height:500px;object-fit:contain;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);">
     </div>
 
     <!-- 四大优势卡片 -->
@@ -513,7 +517,7 @@
         <table class="ptbl">
             <thead><tr><th style="width:14%">政策类别</th><th>主要内容</th></tr></thead>
             <tbody>
-                <tr><td><span class="ptag">战略叠加</span></td><td style="white-space:nowrap;">同时享受西部大开发、成渝双城经济圈、川藏经济协作试验区、成都都市圈等多重国家战略政策红利，七重政策叠加效应全国罕见</td></tr>
+                <tr><td><span class="ptag">战略叠加</span></td><td>同时享受西部大开发、成渝双城经济圈、川藏经济协作试验区、成都都市圈等多重国家战略政策红利，七重政策叠加效应全国罕见</td></tr>
                 <tr><td><span class="ptag">土地政策</span></td><td>工业用地约9万元/亩，重大项目“一事一议”供地；支持弹性年限出让、先租后让等灵活方式</td></tr>
                 <tr><td><span class="ptag">税收优惠</span></td><td>西部大开发企业所得税15%优惠税率；增值税、所得税地方留成部分给予一定比例奖励扶持</td></tr>
                 <tr><td><span class="ptag">厂房支持</span></td><td>标准化厂房租赁，前两年免租或租金补贴；自建厂房重大项目给予建设补贴</td></tr>
@@ -663,7 +667,7 @@
     <div class="news-grid">
         <div class="news">
             <div class="news-img">
-                <img src="images/news-factory-production.jpg" alt="成雅工业园区复工复产" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi></span><span>成雅工业园区复工复产</span></div>'">
+                <img src="news-factory-production.jpg" alt="成雅工业园区复工复产" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi></span><span>成雅工业园区复工复产</span></div>'">
             </div>
             <div class="news-body">
                 <span class="news-date">2026年3月</span>
@@ -674,7 +678,7 @@
         </div>
         <div class="news">
             <div class="news-img">
-                <img src="images/news-leader-visit.jpg" alt="市委书记廖文彬调研名山区" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi>📰</span><span>市委书记廖文彬调研名山区</span></div>'">
+                <img src="news-leader-visit.jpg" alt="市委书记廖文彬调研名山区" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi>📰</span><span>市委书记廖文彬调研名山区</span></div>'">
             </div>
             <div class="news-body">
                 <span class="news-date">2025年8月</span>
@@ -685,7 +689,7 @@
         </div>
         <div class="news">
             <div class="news-img">
-                <img src="images/news-project-inspection.jpg" alt="区委书记余云峰调研成雅工业园区" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi></span><span>区委书记余云峰调研成雅工业园区</span></div>'">
+                <img src="news-project-inspection.jpg" alt="区委书记余云峰调研成雅工业园区" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=ph><span class=pi></span><span>区委书记余云峰调研成雅工业园区</span></div>'">
             </div>
             <div class="news-body">
                 <span class="news-date">2024年11月</span>
